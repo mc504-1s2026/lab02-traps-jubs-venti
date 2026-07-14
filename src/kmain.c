@@ -49,8 +49,6 @@ void kmain()
         for (size_t i = 0; i < bytes_lidos; i++) {
             char c = rx_buf_temp[i];
             
-            // imprime o caractere lido na tela 
-            printk(LOG_INFO, "%c", c); 
 
             // verifica se o caractere lido eh enter
             if (c == '\r' || c == '\n') {
