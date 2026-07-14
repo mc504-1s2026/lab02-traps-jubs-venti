@@ -33,7 +33,7 @@ void kmain()
     int cmdlen = 0;           // tamanho atual do comando no buffer
     char rx_buf_temp[256];    // buffer temporario para armazenar os dados lidos da serial
     
-	printk(LOG_INFO, "\n> ");
+	
     while (1) {
         // le os dados da serial para o buffer temporario
         size_t bytes_lidos = serial_read(rx_buf_temp);
@@ -59,7 +59,7 @@ void kmain()
                     printk(LOG_INFO, "%llus\n", uptime_seconds);
                 } 
                 else if (strncmp(cmdbuf, "echo ", 5) == 0) {
-                    printk(LOG_INFO, "%s\n", cmdbuf + 5); // imprime o que vem depois do "echo "
+                    printk(LOG_INFO, "%s\r\n", cmdbuf + 5); // imprime o que vem depois do "echo "
                 } 
                 else if (strncmp(cmdbuf, "alarm ", 6) == 0) {
                     // extrai o numero de segundos do comando alarm
