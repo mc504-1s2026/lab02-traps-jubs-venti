@@ -33,8 +33,7 @@ void kmain()
     int cmdlen = 0;           // tamanho atual do comando no buffer
     char rx_buf_temp[256];    // buffer temporario para armazenar os dados lidos da serial
     
-    printk(LOG_INFO, "> "); // imprime o prompt do shell
-
+	printk(LOG_INFO, "\n> ");
     while (1) {
         // le os dados da serial para o buffer temporario
         size_t bytes_lidos = serial_read(rx_buf_temp);
