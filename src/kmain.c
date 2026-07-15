@@ -41,8 +41,7 @@ void kmain()
         size_t bytes_lidos = serial_read(rx_buf_temp);
         
         if (bytes_lidos == 0) {
-            // se nao leu nada, entra em modo de espera  
-            __asm__ volatile("wfi");
+           
             continue;
         }
 
