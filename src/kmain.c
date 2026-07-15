@@ -50,11 +50,7 @@ void kmain()
         for (size_t i = 0; i < bytes_lidos; i++) {
             char c = rx_buf_temp[i];
             
-            if (cmdlen == 0 && (c == '\r' || c == '\n')) {
-            // se o usuario apertou enter sem digitar nada, apenas imprima o prompt e ignore
-            printk(LOG_INFO, "\n> ");
-            continue;
-            }
+            printk(LOG_INFO, "%c", c);
 
             // verifica se o caractere lido eh enter
             if (c == '\r' || c == '\n') {
