@@ -37,8 +37,8 @@ void timer_irq()
 	uptime_seconds++;
 
     if (alarm_active && uptime_seconds >= alarm_target) {
-        printk(LOG_INFO, "\nalarm\n> ");
-        alarm_active = 0;
+        printk(LOG_INFO, "\nalarm\r\n"); 
+    alarm_active = 0;
     }
 
     // ativa novamente o timer para disparar novamente no proximo seg 

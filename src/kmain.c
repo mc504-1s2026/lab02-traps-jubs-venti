@@ -63,7 +63,7 @@ void kmain()
 
                 // processa o comando digitado
                 if (strncmp(cmdbuf, "uptime", 6) == 0) {
-                    printk(LOG_INFO, "%llus\r\n", uptime_seconds);
+                    printk(LOG_INFO, "%llus\r\n", uptime_seconds);  
                 } 
                 else if (strncmp(cmdbuf, "echo ", 5) == 0) {
                     printk(LOG_INFO, "%s\r\n", cmdbuf + 5); // imprime o que vem depois do "echo "
