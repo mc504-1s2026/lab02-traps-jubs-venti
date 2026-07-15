@@ -1,5 +1,6 @@
 #include <kernel/serial.h>
 #include <kernel/panic.h>
+#include <kernel/trap.h>
 #include <arch/plic.h>
 #include <arch/spinlock.h>
 #include <arch/csr.h>
@@ -75,7 +76,11 @@ void serial_irq()
 size_t serial_read(char *buf)
 {
 	size_t count = 0;
+    u64 flags;
+
     
+    flags = hart_irq_save();
+
     // trava o acesso ao buffer circular para evitar corrupcao de dados
     spin_lock(&serial_lock);
     
@@ -86,6 +91,7 @@ size_t serial_read(char *buf)
     }
     
     spin_unlock(&serial_lock);
+    hart_irq_restore(flags);
     
     return count;
 }
