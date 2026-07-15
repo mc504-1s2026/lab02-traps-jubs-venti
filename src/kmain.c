@@ -12,6 +12,7 @@ extern int alarm_active;
 
 void kmain()
 {
+    
 	printk_set_level(LOG_DEBUG);
 	info("entered S-mode\n");
 	info("booting on hart %d\n", _hartid[0]);
@@ -35,7 +36,7 @@ void kmain()
     
     char lixo[256];
     serial_read(lixo);  
-	printk(LOG_INFO, "> ");
+	printk(LOG_INFO, "\n> ");
     while (1) {
         // le os dados da serial para o buffer temporario
         size_t bytes_lidos = serial_read(rx_buf_temp);
